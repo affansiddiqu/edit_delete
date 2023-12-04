@@ -19,4 +19,5 @@ Route::controller(form ::class)->group(function () {
     Route::post('/form','reg')->name('form');
     Route::get('/view','view')->name('view');
     Route::get('/dlt{id}','delete')->name('dlt');
+    Route::get('/','home')->name('index');
 });

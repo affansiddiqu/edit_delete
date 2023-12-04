@@ -9,7 +9,7 @@ use App\Models\data;
 class form extends Controller
 {
     public function form(){
-        return view('form');
+        return view('view');
     }
 
     public function reg(Request $request){
@@ -37,4 +37,9 @@ class form extends Controller
         $delete = form2::find($id)->delete();
         return redirect('view');
     }
+
+    public function home(){
+        return view ('home');
+    }
+
 }
