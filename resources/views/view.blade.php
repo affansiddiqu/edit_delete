@@ -17,46 +17,7 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1>Form</h1>
-        <form action="{{Route('form')}}" class="form-group" method="post">
 
-            @csrf
-            <label for="name">name</label>
-            <input type="name" class="form-control" name="name" value="{{old('name')}}">
-
-            <span class="text-danger">
-                @error('name')
-                  {{$message}}
-                  @enderror
-            </span>
-            <br>
-
-            <label for="email">email</label>
-            <input type="email" class="form-control" name="email" value="{{old('email')}}">
-
-            <span class="text-danger">
-                @error('email')
-                  {{$message}}
-                @enderror
-            </span>
-            <br>
-
-            <label for="password">password</label>
-            <input type="password" class="form-control" name="password" value="{{old('password')}}">
-
-            <span class="text-danger">
-                @error('password')
-                  {{$message}}
-                @enderror
-            </span>
-            <br>
-
-
-            <input type="submit" class="btn btn-danger mt-4">
-
-        </form>
-    </div>
     <div class="container mt-5">
         <div class="table-responsive">
             <table class="table table-warning">
@@ -67,6 +28,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
                     <th scope="col">delete</th>
+                    <th scope="col">update</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,6 +40,7 @@
                     <td>{{$value->email}}</td>
                     <td>{{$value->password}}</td>
                     <td><a href="{{url('/')}}/dlt{{$value->id}}" class= "btn btn-danger"> <i class="fa fa-window-close" aria-hidden="true"></i>
+                    <td><a href="{{url('/')}}/edit{{$value->id}}" class= "btn btn-success"> <i class="fa fa-window" aria-hidden="true"></i>
                     </a>
 </td>
                 </tr>

@@ -18,6 +18,9 @@ Route::controller(form ::class)->group(function () {
     Route::get('/form','form')->name('form');
     Route::post('/form','reg')->name('form');
     Route::get('/view','view')->name('view');
-    Route::get('/dlt{id}','delete')->name('dlt');
     Route::get('/','home')->name('index');
+    Route::get('/dlt{id}','delete')->name('dlt');
+    Route::get('/edit{id}','edit')->name('edit');
+    Route::post('/edit{id}','update')->name('edit');
 });
+// Route::get('/dlt{id}',[formController::class ,'std-edit']);

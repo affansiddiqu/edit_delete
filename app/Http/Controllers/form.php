@@ -9,7 +9,10 @@ use App\Models\data;
 class form extends Controller
 {
     public function form(){
-        return view('view');
+        $url=url('/form');
+        $title = "user information";
+        $data = compact ('url' ,'title');
+        return view('form')->with($data);
     }
 
     public function reg(Request $request){
@@ -41,5 +44,23 @@ class form extends Controller
     public function home(){
         return view ('home');
     }
+
+    public function edit($id){
+        $edit = form2::find($id);
+        // dd($edit);
+        $url=url('/edit').$id;
+        $title = "update user information";
+        $records = compact ('edit' , 'url' ,'title');
+        return view('form')->with($records);
+    }
+
+    public function update($id , Request $request){
+        $edit = form2::find($id);
+        $edit->name = $request['name'];
+        $edit->email = $request['email'];
+        $edit->password = $request['password'];
+        $edit->save();
+        return redirect('view');
+     }
 
 }
